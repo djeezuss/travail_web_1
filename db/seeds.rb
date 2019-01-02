@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create!(:email => 'a@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+User.create!(:email => 'b@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+User.create!(:email => 'c@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+User.create!(:email => 'd@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+
+Voiture.create!(:marque => 'Toyota', :couleur => 'Bleu',   :annee => 2004)
+Voiture.create!(:marque => 'Toyota', :couleur => 'Vert',   :annee => 2012)
+Voiture.create!(:marque => 'Ford',   :couleur => 'Rouge',  :annee => 2008, :user_id => User.first.id)
+Voiture.create!(:marque => 'Honda',  :couleur => 'Blanc',  :annee => 2010)

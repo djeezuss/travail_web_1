@@ -1,0 +1,22 @@
+<h1>Vos voitures</h1>
+<% if @has_voitures %>
+    <table>
+        <thead>
+            <th>Marque</th>
+            <th>Couleur</th>
+            <th>Année</th>
+        </thead>
+
+        <tbody>
+            <% @voitures.each do |voiture| %>
+                <tr>
+                    <td><%= voiture.marque %></td>
+                    <td><%= voiture.couleur %></td>
+                    <td><%= voiture.annee %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+    <p>Aucune voitures ne vous appartient</p>
+<% end %>
