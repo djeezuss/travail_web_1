@@ -11,8 +11,8 @@ User.create!(:email => 'b@gmail.com', :password => 'topsecret', :password_confir
 User.create!(:email => 'c@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 User.create!(:email => 'd@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 
-Voiture.create!(:marque => 'Toyota', :couleur => 'Bleu',   :annee => 2004)
-Voiture.create!(:marque => 'Toyota', :couleur => 'Vert',   :annee => 2012)
-Voiture.create!(:marque => 'Ford',   :couleur => 'Rouge',  :annee => 2008, :user_id => User.first.id)
-Voiture.create!(:marque => 'Honda',  :couleur => 'Blanc',  :annee => 2010)
-Voiture.create!(:marque => 'Ford',   :couleur => 'Bleu',   :annee => 2011, :user_id => User.first.id)
+Voiture.create!(:marque => 'Toyota', :couleur => 'bleu',   :annee => 2004, :user_id => 1)
+Voiture.create!(:marque => 'Toyota', :couleur => 'vert',   :annee => 2012, :user_id => 2)
+Voiture.create!(:marque => 'Ford',   :couleur => 'rouge',  :annee => 2008, :user_id => 1)
+Voiture.create!(:marque => 'Honda',  :couleur => 'blanc',  :annee => 2010, :user_id => 3)
+Voiture.create!(:marque => 'Ford',   :couleur => 'bleu',   :annee => 2011, :user_id => 1)

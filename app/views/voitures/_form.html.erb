@@ -1,0 +1,10 @@
+<%= form_for @voiture, remote: true do |f| %>
+  <table>
+    <tbody>
+      <tr><td><%= f.label :marque, "Marque" %></td>   <td><%= f.text_field :marque %></td></tr>
+      <tr><td><%= f.label :couleur, "Couleur" %></td> <td><%= f.text_field :couleur %></td></tr>
+      <tr><td><%= f.label :annee, "Annee" %></td>     <td><%= f.text_field :annee %></td></tr>
+    </tbody>
+  </table>
+  <%= f.submit %>
+<% end %>

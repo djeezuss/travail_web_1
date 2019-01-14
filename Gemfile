@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2.1'
 gem 'mysql2'
 # Use devise to authenticate users
 gem 'devise', '~> 4.5'
+# Use JQuery because I need it
+gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

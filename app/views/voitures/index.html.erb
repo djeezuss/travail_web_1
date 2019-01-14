@@ -1,0 +1,13 @@
+<script>
+function init_update(id) {
+    
+}
+</script>
+
+<h1>Vos voitures</h1>
+
+<%= link_to "Ajouter une voiture", new_voiture_path, id: "new_link", remote: true %>
+
+<div id="voiture_list">
+    <%= render @voitures %>
+</div>

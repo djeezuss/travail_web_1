@@ -1,0 +1,10 @@
+<%= form_for voiture, remote: true do |f| %>
+    <%= voiture.marque %>
+    <%= voiture.couleur %>
+    <%= voiture.annee %>
+    <!--%= f.text_field :marque %-->
+    <!--%= f.text_field :couleur %-->
+    <!--%= f.text_field :annee %-->
+    <%= button_to "Modifier", voiture, method: :patch, remote: true %>
+    <%= button_to "Supprimer", voiture, method: :delete, data: {confirm: "Êtes-vous certain?"}, remote: true %>
+<% end %>
