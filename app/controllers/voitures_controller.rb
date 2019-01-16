@@ -8,28 +8,23 @@ class VoituresController < ApplicationController
     end
 
     def create
-        @voiture = Voiture.create!(voiture_params)
+        @voiture = Voiture.create(voiture_params)
         @voiture.user_id = current_user.id
-        if voiture_validations(@voiture)
-            @voiture.save
-        end
+        success = @voiture.save
         respond_to do |format|
             format.html { redirect_to voitures_url }
-            if voiture_validations(@voiture)
+            if success
                 format.js
             end
         end
     end
 
     def update
-        byebug
         @voiture = Voiture.find(params[:id])
-        if voiture_validations(@voiture)   
-            @voiture.update_attributes!(voiture_params)
-        end
+        success = @voiture.update(voiture_params)
         respond_to do |format|
             format.html { redirect_to voitures_url }
-            if voiture_validations(@voiture)
+            if success
                 format.js
             end
         end
@@ -44,10 +39,6 @@ class VoituresController < ApplicationController
     end
 
     private
-
-    def voiture_validations(voiture)
-        return voiture.annee.to_i > 1900 && voiture.annee.to_i <= Time.current.year && voiture.marque.present? && voiture.couleur.present?
-    end
 
     def voiture_params
         params.require(:voiture).permit(:marque, :couleur, :annee)

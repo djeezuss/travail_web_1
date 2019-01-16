@@ -1,0 +1,4 @@
+$('.voiture_info_<%= @voiture.id %> > #voiture_marque').text('<%= @voiture.marque %>');
+$('.voiture_info_<%= @voiture.id %> > #voiture_couleur').text('<%= @voiture.couleur %>');
+$('.voiture_info_<%= @voiture.id %> > #voiture_annee').text('<%= @voiture.annee %>');
+$('.voiture_info_<%= @voiture.id %>').toggle();

@@ -1,10 +1,22 @@
-<%= form_for voiture, remote: true do |f| %>
-    <%= voiture.marque %>
-    <%= voiture.couleur %>
-    <%= voiture.annee %>
-    <!--%= f.text_field :marque %-->
-    <!--%= f.text_field :couleur %-->
-    <!--%= f.text_field :annee %-->
-    <%= button_to "Modifier", voiture, method: :patch, remote: true %>
-    <%= button_to "Supprimer", voiture, method: :delete, data: {confirm: "Êtes-vous certain?"}, remote: true %>
-<% end %>
+<div class="edit_voiture" id="edit_voiture_<%= voiture.id %>">
+    <%= form_for voiture, remote: true, :html => { :class => nil, :id => nil, :style => "display:inline; float:left;" } do |f| %>
+        <div class="voiture_info_<%= voiture.id %> " style="display:inline;">
+            <div id="voiture_marque"  style="display:inline;"> <%= voiture.marque %>  </div>
+            <div id="voiture_couleur" style="display:inline;"> <%= voiture.couleur %> </div>
+            <div id="voiture_annee"   style="display:inline;"> <%= voiture.annee %>   </div>
+            <button>Modifier</button>
+        </div>
+
+        <div class="voiture_info_<%= voiture.id %>" style="display:none;">
+            <%= f.text_field :marque %>
+            <%= f.text_field :couleur %>
+            <%= f.text_field :annee %>
+            <%= button_to "Sauvegarder", voiture, method: :patch, remote: true %>
+        </div>
+
+        
+    <% end %>
+    <div style="display:inline;">
+        <%= button_to "Supprimer", voiture, method: :delete, data: {confirm: "Êtes-vous certain?"}, remote: true %>
+    </div>
+</div>
