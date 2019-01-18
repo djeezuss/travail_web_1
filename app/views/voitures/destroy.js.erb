@@ -1,1 +1,3 @@
 $('#edit_voiture_<%= @voiture.id %>').remove();
+$('.alert-success').text('"<%= @voiture.marque %> <%= @voiture.couleur %> <%= @voiture.annee %>" supprimé avec succès.');
+$('.alert-success').show();

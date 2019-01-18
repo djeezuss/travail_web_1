@@ -1,3 +1,14 @@
+$('.alert').hide();
+<% if @success %>
 $('#new_voiture').remove();
 $('#new_link').show();
 $('#voiture_list').append('<%= j render(@voiture) %>');
+$('.alert-success').text('"<%= @voiture.marque %> <%= @voiture.couleur %> <%= @voiture.annee %>" créée avec succès.');
+$('.alert-success').show();
+<% else %>
+$('.alert-danger').html('')
+    <% @error_msg.each do |msg| %>
+    $('.alert-danger').append('<%= msg %> <br>')
+    <% end %>
+$('.alert-danger').show();
+<% end %>

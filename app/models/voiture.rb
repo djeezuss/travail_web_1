@@ -1,16 +1,12 @@
 class Voiture < ApplicationRecord
     belongs_to :user, optional: true
 
-    validates :marque, :couleur, presence: true
-    validate :valid_date    
-
-    def expiration_date_cannot_be_in_the_past
-        errors.add(:expiration_date, "can't be in the past") if
-            !expiration_date.blank? and expiration_date < Date.today
-    end
+    validates_presence_of :marque, :message => "ne peut pas être vide."
+    validates_presence_of :couleur, :message => "ne peut pas être vide."
+    validate :valid_date
     
     def valid_date
-        errors.add(:annee, "Année non valide") if
-            !annee.blank? and (annee > Time.current.year or annee < 1900)
+        errors.add(:annee, "non valide. Doit être entre 1900 et " + Time.current.year.to_s + " inclusivement.") if
+            annee.blank? || (annee > Time.current.year or annee < 1900)
     end
 end

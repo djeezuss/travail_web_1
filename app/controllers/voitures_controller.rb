@@ -10,23 +10,25 @@ class VoituresController < ApplicationController
     def create
         @voiture = Voiture.create(voiture_params)
         @voiture.user_id = current_user.id
-        success = @voiture.save
+        @success = @voiture.save
+        if @success == false
+            @error_msg = @voiture.errors.full_messages
+        end
         respond_to do |format|
             format.html { redirect_to voitures_url }
-            if success
-                format.js
-            end
+            format.js
         end
     end
 
     def update
         @voiture = Voiture.find(params[:id])
-        success = @voiture.update(voiture_params)
+        @success = @voiture.update(voiture_params)
+        if @success == false
+            @error_msg = @voiture.errors.full_messages
+        end
         respond_to do |format|
             format.html { redirect_to voitures_url }
-            if success
-                format.js
-            end
+            format.js
         end
     end
   
